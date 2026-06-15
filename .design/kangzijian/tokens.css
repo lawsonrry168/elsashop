@@ -1,0 +1,114 @@
+/**
+ * 康姿健 Kang Zi Jian — Design Tokens
+ * Korean Soft Luxury · Light mode primary
+ */
+
+:root {
+  /* Color — raw palette */
+  --kz-color-skin-base: #fbf7f8;
+  --kz-color-mist-lilac: #ede4f3;
+  --kz-color-blush-pink: #e8c4d4;
+  --kz-color-soft-rose: #d4a5b5;
+  --kz-color-deep-plum: #4a3f55;
+  --kz-color-plum-muted: #6b5f75;
+  --kz-color-trust-sage: #8fa89a;
+  --kz-color-accent-gold: #c9a96e;
+  --kz-color-white: #ffffff;
+  --kz-color-brand-navy: #1a3066;
+  --kz-color-brand-pink: #e91e63;
+
+  /* Semantic */
+  --color-bg-primary: var(--kz-color-skin-base);
+  --color-bg-secondary: var(--kz-color-white);
+  --color-bg-tertiary: var(--kz-color-mist-lilac);
+  --color-bg-accent: var(--kz-color-blush-pink);
+  --color-bg-inverse: var(--kz-color-deep-plum);
+
+  --color-text-primary: var(--kz-color-deep-plum);
+  --color-text-secondary: var(--kz-color-plum-muted);
+  --color-text-tertiary: #9a8fa3;
+  --color-text-inverse: var(--kz-color-white);
+  --color-text-link: var(--kz-color-soft-rose);
+
+  --color-border-primary: #e8dde8;
+  --color-border-secondary: #f0e8f0;
+  --color-border-focus: var(--kz-color-soft-rose);
+
+  --color-accent-primary: var(--kz-color-soft-rose);
+  --color-accent-primary-hover: #c895a8;
+  --color-accent-secondary: var(--kz-color-trust-sage);
+  --color-accent-gold: var(--kz-color-accent-gold);
+
+  --color-status-success: var(--kz-color-trust-sage);
+  --color-status-info: var(--kz-color-mist-lilac);
+
+  /* Spacing — 8px base, Korean spacious */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* Typography */
+  --font-family-display: var(--font-noto-serif), "Noto Serif TC", serif;
+  --font-family-body: var(--font-noto-sans), "Noto Sans TC", sans-serif;
+  --font-family-accent: var(--font-cormorant), "Cormorant Garamond", serif;
+  --font-family-ui: var(--font-dm-sans), "DM Sans", sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3.25rem;
+
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.4;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-wide: 0.08em;
+  --letter-spacing-wider: 0.12em;
+
+  /* Radius — soft Korean */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgb(74 63 85 / 0.06);
+  --shadow-md: 0 4px 20px rgb(74 63 85 / 0.08);
+  --shadow-lg: 0 12px 40px rgb(74 63 85 / 0.1);
+  --shadow-card-hover: 0 8px 30px rgb(212 165 181 / 0.2);
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --container-max: 72rem;
+  --header-height: 4.5rem;
+}
+
+[data-theme="dark"] {
+  --color-bg-primary: #1a1520;
+  --color-bg-secondary: #241f2a;
+  --color-bg-tertiary: #2e2835;
+  --color-text-primary: #f5f0f3;
+  --color-text-secondary: #c4b8c8;
+  --color-border-primary: #3d3545;
+}

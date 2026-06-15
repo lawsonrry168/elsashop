@@ -1,0 +1,180 @@
+{
+  "count": 25,
+  "items": [
+    {
+      "id": "plaser-rf",
+      "mediaId": "619134055",
+      "file": "/images/promo/plaser-rf.png",
+      "title": "PLASER 隔空離子熱能射頻",
+      "treatment": "plaser-rf"
+    },
+    {
+      "id": "tegoder-peel",
+      "mediaId": "610682319",
+      "file": "/images/promo/tegoder-peel.png",
+      "title": "TEGODER 量膚定制果酸",
+      "treatment": "tegoder-peel"
+    },
+    {
+      "id": "plasma-acne",
+      "mediaId": "616276711",
+      "file": "/images/promo/plasma-acne.png",
+      "title": "等離子抗痘煥膚",
+      "treatment": "plasma-acne"
+    },
+    {
+      "id": "plasma-peel",
+      "mediaId": "612421347",
+      "file": "/images/promo/plasma-peel.png",
+      "title": "等離子煥膚",
+      "treatment": "plasma-peel"
+    },
+    {
+      "id": "hero-shop",
+      "mediaId": "469641557",
+      "file": "/images/promo/hero-shop.png",
+      "title": "康姿健屯門小店",
+      "treatment": null
+    },
+    {
+      "id": "exosome",
+      "mediaId": "654030090",
+      "file": "/images/promo/exosome.png",
+      "title": "外泌體細胞修復",
+      "treatment": "exosome"
+    },
+    {
+      "id": "men-laser",
+      "mediaId": "622582177",
+      "file": "/images/promo/men-laser.png",
+      "title": "男賓激光護理",
+      "treatment": "men-laser"
+    },
+    {
+      "id": "hifu",
+      "mediaId": "655436967",
+      "file": "/images/promo/hifu.png",
+      "title": "HIFU 緊緻拉提",
+      "treatment": "hifu"
+    },
+    {
+      "id": "microneedle-rf",
+      "mediaId": "626189000",
+      "file": "/images/promo/microneedle-rf.png",
+      "title": "m.pen 微針煥膚",
+      "treatment": "microneedle-rf"
+    },
+    {
+      "id": "collazen-triple",
+      "mediaId": "656277400",
+      "file": "/images/promo/collazen-triple.png",
+      "title": "COLLAZEN 一打三黑科技",
+      "treatment": "collazen"
+    },
+    {
+      "id": "collazen-5in1",
+      "mediaId": "626828883",
+      "file": "/images/promo/collazen-5in1.png",
+      "title": "COLLAZEN 膠原美肌小旋風 5合1",
+      "treatment": "collazen"
+    },
+    {
+      "id": "brand-opening",
+      "mediaId": "641753737",
+      "file": "/images/promo/brand-opening.png",
+      "title": "康姿健開工大吉",
+      "treatment": null
+    },
+    {
+      "id": "collazen-hifu-rf",
+      "mediaId": "635279113",
+      "file": "/images/promo/collazen-hifu-rf.png",
+      "title": "COLLAZEN HIFU RF 增效",
+      "treatment": "collazen"
+    },
+    {
+      "id": "laser-spot",
+      "mediaId": "642537783",
+      "file": "/images/promo/laser-spot.png",
+      "title": "Ruikd Genelux Lite 納秒激光",
+      "treatment": "laser-spot"
+    },
+    {
+      "id": "air-plaser",
+      "mediaId": "652032110",
+      "file": "/images/promo/air-plaser.png",
+      "title": "Air Plaser 等離子",
+      "treatment": "plaser-rf"
+    },
+    {
+      "id": "collazen-atoz",
+      "mediaId": "657711985",
+      "file": "/images/promo/collazen-atoz.png",
+      "title": "COLLAZEN 膠原小旋風 A to Z",
+      "treatment": "collazen"
+    },
+    {
+      "id": "dr-rainbow-fir",
+      "mediaId": "648345329",
+      "file": "/images/promo/dr-rainbow-fir.png",
+      "title": "Dr. Rainbow 遠紅外線",
+      "treatment": null
+    },
+    {
+      "id": "seasonal-skincare",
+      "mediaId": "657461485",
+      "file": "/images/promo/seasonal-skincare.png",
+      "title": "轉季護膚小貼士",
+      "treatment": null
+    },
+    {
+      "id": "spanish-facial",
+      "mediaId": "682645805",
+      "file": "/images/promo/spanish-facial.png",
+      "title": "西班牙醫學級人手 Facial",
+      "treatment": "men-facial"
+    },
+    {
+      "id": "dr-face",
+      "mediaId": "700208007",
+      "file": "/images/promo/dr-face.png",
+      "title": "Dr. Face 遠紅外線童顏機",
+      "treatment": null
+    },
+    {
+      "id": "wellness-detox",
+      "mediaId": "669601128",
+      "file": "/images/promo/wellness-detox.png",
+      "title": "養生排毒 Dr. Rainbow",
+      "treatment": null
+    },
+    {
+      "id": "event-prep",
+      "mediaId": "710556540",
+      "file": "/images/promo/event-prep.png",
+      "title": "重要日子前大掃除",
+      "treatment": null
+    },
+    {
+      "id": "sensitive-repair",
+      "mediaId": "719609596",
+      "file": "/images/promo/sensitive-repair.png",
+      "title": "脆弱肌修護方案",
+      "treatment": "tegoder-peel"
+    },
+    {
+      "id": "me-time",
+      "mediaId": "719891423",
+      "file": "/images/promo/me-time.png",
+      "title": "享受 Me Time 無壓力美容",
+      "treatment": null
+    },
+    {
+      "id": "men-facial",
+      "mediaId": "705939121",
+      "file": "/images/promo/men-facial.png",
+      "title": "男賓深層清潔護理",
+      "treatment": "men-facial"
+    }
+  ]
+}
