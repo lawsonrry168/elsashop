@@ -100,7 +100,7 @@ export const defaultHeroContent: HeroContent = {
   image: images.hero.main.src,
   imageAlt: images.hero.main.alt,
   watermark: "SKIN",
-  kicker: "Kang Zi Jian · Bespoke Skincare",
+  kicker: `${site.nameEn} · Bespoke Skincare`,
   titleLines: ["量膚", "定制", "更安心"],
   railTaglines: [...heroRailTaglines],
   sellBadges: [

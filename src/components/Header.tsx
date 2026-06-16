@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { IconClose, IconMenu } from "@/components/icons/KzIcons";
-import { navItems } from "@/data/site";
+import { navItems, site } from "@/data/site";
 
 export function Header() {
   const pathname = usePathname();
@@ -57,7 +57,7 @@ export function Header() {
       <div className="container-kz flex h-[var(--header-height)] items-center justify-between">
         <Link href="/" className="brand-logo-link group no-underline">
           <BrandLogo priority />
-          <span className="sr-only">康姿健 Kang Zi Jian</span>
+          <span className="sr-only">{site.name} {site.nameEn}</span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="主導覽">

@@ -1,3 +1,4 @@
+import { site } from "@/data/site";
 import { EditorialHeading } from "./EditorialHeading";
 
 const usps = [
@@ -25,7 +26,7 @@ export function USPGrid() {
       <div className="container-kz editorial-split editorial-split--offset">
         <EditorialHeading
           index="02"
-          eyebrow="Why Kang Zi Jian"
+          eyebrow={`Why ${site.nameEn}`}
           title="為什麼選擇康姿健"
           description="專業、透明、不推銷 — 一人小店的安心護理。"
         />

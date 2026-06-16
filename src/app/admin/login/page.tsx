@@ -1,3 +1,4 @@
+import { site } from "@/data/site";
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { AdminThemeToggle } from "@/app/admin/components/AdminThemeToggle";
@@ -23,8 +24,8 @@ export default async function AdminLoginPage({ searchParams }: Props) {
         <div className="kz-admin__brand kz-admin__brand--center">
           <BrandLogo className="kz-admin__brand-icon kz-admin__brand-icon--login" priority />
           <span className="kz-admin__brand-text">
-            康姿健
-            <small>內容管理</small>
+            {site.name}
+            <small>{site.nameEn}</small>
           </span>
         </div>
         <p className="kz-admin__login-lead">內容管理後台登入</p>

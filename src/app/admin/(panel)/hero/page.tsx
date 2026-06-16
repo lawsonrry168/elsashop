@@ -98,7 +98,7 @@ export default async function AdminHeroPage() {
               id="kicker"
               name="kicker"
               defaultValue={hero.kicker}
-              placeholder="Kang Zi Jian · Bespoke Skincare"
+              placeholder="HONG CHI KIN · Bespoke Skincare"
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-3">

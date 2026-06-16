@@ -18,7 +18,7 @@ export function buildPageMetadata(options: PageMetadataOptions = {}): Metadata {
   const pageTitle = options.title;
   const ogTitle = pageTitle
     ? `${pageTitle}｜${site.name}`
-    : `${site.name} Kang Zi Jian`;
+    : `${site.name} ${site.nameEn}`;
   const imagePath = options.image ?? DEFAULT_OG_IMAGE;
   const imageUrl = imagePath.startsWith("http")
     ? imagePath

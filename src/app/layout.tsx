@@ -55,6 +55,7 @@ export default async function RootLayout({
     <html
       lang="zh-Hant"
       translate="no"
+      suppressHydrationWarning
       className={`${notoSerif.variable} ${notoSans.variable} ${cormorant.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pb-16 md:pb-0">

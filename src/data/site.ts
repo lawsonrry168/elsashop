@@ -1,6 +1,6 @@
 export const site = {
   name: "康姿健",
-  nameEn: "Kang Zi Jian",
+  nameEn: "HONG CHI KIN",
   legalName: "康姿健理療",
   tagline: "Your Skin is Your Best Accessory",
   subtitle: "屯門美容 · 皮膚管理 · 痛症理療",

@@ -1,3 +1,4 @@
+import { site } from "@/data/site";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -16,8 +17,8 @@ export default function AdminPanelLayout({ children }: { children: ReactNode }) 
             <Link href="/admin" className="kz-admin__brand">
               <BrandLogo className="kz-admin__brand-icon" priority />
               <span className="kz-admin__brand-text">
-                康姿健
-                <small>內容管理</small>
+                {site.name}
+                <small>{site.nameEn}</small>
               </span>
             </Link>
             <AdminNav />
