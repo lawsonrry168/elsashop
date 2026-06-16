@@ -5,7 +5,7 @@ import { AdminNav } from "@/app/admin/components/AdminNav";
 import { AdminSaveNotice } from "@/app/admin/components/AdminSaveNotice";
 import { AdminThemeToggle } from "@/app/admin/components/AdminThemeToggle";
 import { BrandLogo } from "@/components/BrandLogo";
-import { signOutAdmin } from "../actions";
+import { signOutAdmin } from "../auth-actions";
 
 export default function AdminPanelLayout({ children }: { children: ReactNode }) {
   return (

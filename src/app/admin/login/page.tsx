@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { AdminThemeToggle } from "@/app/admin/components/AdminThemeToggle";
-import { signInAdmin } from "../actions";
+import { signInAdmin } from "../auth-actions";
 import { isCmsConfigured } from "@/lib/supabase/env";
 
 type Props = { searchParams: Promise<{ error?: string }> };

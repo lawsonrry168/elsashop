@@ -11,7 +11,6 @@ import { uniqueSlug } from "@/lib/cms/slug";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isCmsConfigured } from "@/lib/supabase/env";
 import { isCmsAdminUser } from "@/lib/cms/admin";
-import { optimizeImageUpload } from "@/lib/media-optimize";
 import { suggestMediaAlt } from "@/lib/media-alt";
 
 type RequireAdminOptions = {
@@ -141,6 +140,7 @@ async function persistMediaUpload(
   }
 
   const rawBytes = Buffer.from(await file.arrayBuffer());
+  const { optimizeImageUpload } = await import("@/lib/media-optimize");
   const optimized = await optimizeImageUpload(file, rawBytes);
   const uploadPath = `${folder}/${Date.now()}-${sanitizeFilename(optimized.filename)}`;
 
@@ -216,40 +216,6 @@ export async function uploadMediaInlineAction(
   return result;
 }
 
-export async function signInAdmin(formData: FormData) {
-  if (!isCmsConfigured()) {
-    redirect("/admin/login?error=config");
-  }
-  const email = String(formData.get("email") ?? "").trim();
-  const password = String(formData.get("password") ?? "");
-  if (!email || !password) {
-    redirect("/admin/login?error=missing");
-  }
-
-  const supabase = await createSupabaseServerClient();
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) redirect("/admin/login?error=invalid");
-
-  const userId = data.user?.id;
-  if (!userId) redirect("/admin/login?error=invalid");
-
-  const isAdmin = await isCmsAdminUser(supabase, userId);
-  if (!isAdmin) {
-    await supabase.auth.signOut();
-    redirect("/admin/login?error=unauthorized");
-  }
-
-  redirect("/admin");
-}
-
-export async function signOutAdmin() {
-  if (!isCmsConfigured()) {
-    redirect("/admin/login");
-  }
-  const supabase = await createSupabaseServerClient();
-  await supabase.auth.signOut();
-  redirect("/admin/login");
-}
 
 export async function saveJournalPost(formData: FormData) {
   const { supabase } = await requireAdmin();

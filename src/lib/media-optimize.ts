@@ -1,5 +1,3 @@
-import sharp from "sharp";
-
 export type OptimizedImage = {
   buffer: Buffer;
   mimeType: string;
@@ -21,6 +19,7 @@ export async function optimizeImageUpload(
     };
   }
 
+  const { default: sharp } = await import("sharp");
   const webp = await sharp(bytes)
     .rotate()
     .webp({ quality: 82, effort: 4 })
