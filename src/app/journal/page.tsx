@@ -1,40 +1,41 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { BookingCTA } from "@/components/BookingCTA";
-import { JournalMagazineGrid } from "@/components/JournalMagazineGrid";
-import { MoanaPageHero } from "@/components/MoanaPageHero";
-import { journalPosts } from "@/data/journal";
-import { site } from "@/data/site";
+import { CmsPageHero } from "@/components/CmsPageHero";
+import { getInnerPage, getInnerPageMetadata } from "@/lib/cms/inner-pages";
+import { getJournalCategories, getJournalPosts } from "@/lib/cms/queries";
+import { buildPageMetadata } from "@/lib/seo";
+import JournalPageClient from "./JournalPageClient";
 
-export const metadata: Metadata = {
-  title: "醫美知識",
-  description: "康姿健醫美知識 — 55 篇專業貼文，涵蓋果酸、儀器、痛症理療與護膚貼士。",
-};
+function JournalLoading() {
+  return (
+    <div className="moana-about" aria-busy="true" aria-label="載入文章列表…">
+      <p className="text-sm text-kz-plum-muted">載入文章列表…</p>
+    </div>
+  );
+}
 
-export default function JournalPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const meta = await getInnerPageMetadata("journal");
+  return buildPageMetadata(meta);
+}
+
+export default async function JournalPage() {
+  const [posts, categories, page] = await Promise.all([
+    getJournalPosts(),
+    getJournalCategories(),
+    getInnerPage("journal"),
+  ]);
+
   return (
     <>
       <section className="moana-page">
         <div className="container-kz">
-          <MoanaPageHero
-            watermark="Journal"
-            eyebrow={site.nameEn}
-            title="醫美知識"
-            lead={
-              <p>
-                果酸、暗瘡、敏感肌 — 專業文章助你了解
-                <strong>療程原理</strong>與
-                <strong className="text-kz-brand-pink">護膚知識</strong>。
-              </p>
-            }
-          >
-            <Link href="/skin-analysis" className="moana-pill-btn">
-              量膚定制
-              <span aria-hidden>→</span>
-            </Link>
-          </MoanaPageHero>
+          <CmsPageHero hero={page.hero} />
 
-          <JournalMagazineGrid posts={journalPosts} />
+          <Suspense fallback={<JournalLoading />}>
+            <JournalPageClient posts={posts} categories={categories} panels={page.panels} />
+          </Suspense>
         </div>
       </section>
 

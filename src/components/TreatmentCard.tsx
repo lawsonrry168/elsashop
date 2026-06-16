@@ -25,7 +25,7 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
 
       <div className="mt-5 border-t border-kz-lilac/60 pt-4">
         {treatment.priceType === "fixed" ? (
-          <p className="price-fixed">
+          <p className="price-fixed tabular-nums">
             {treatment.price}{" "}
             <span className="text-sm font-normal text-kz-plum-muted">/ 單次</span>
           </p>

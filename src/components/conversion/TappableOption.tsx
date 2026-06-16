@@ -24,7 +24,6 @@ export function TappableOption({
       type="button"
       role="radio"
       aria-checked={selected}
-      aria-pressed={selected}
       data-cta-id={ctaId}
       className={`conversion-option ${selected ? "conversion-option--active" : ""}`}
       onClick={onSelect}

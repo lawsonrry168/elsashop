@@ -9,9 +9,11 @@
   --kz-color-mist-lilac: #ede4f3;
   --kz-color-blush-pink: #e8c4d4;
   --kz-color-soft-rose: #d4a5b5;
+  --kz-color-rose-strong: #a14c66;
   --kz-color-deep-plum: #4a3f55;
   --kz-color-plum-muted: #6b5f75;
   --kz-color-trust-sage: #8fa89a;
+  --kz-color-trust-sage-text: #5f7a6e;
   --kz-color-accent-gold: #c9a96e;
   --kz-color-white: #ffffff;
   --kz-color-brand-navy: #1a3066;
@@ -26,13 +28,14 @@
 
   --color-text-primary: var(--kz-color-deep-plum);
   --color-text-secondary: var(--kz-color-plum-muted);
-  --color-text-tertiary: #9a8fa3;
+  --color-text-tertiary: #756b80;
   --color-text-inverse: var(--kz-color-white);
   --color-text-link: var(--kz-color-soft-rose);
+  --color-text-sage: var(--kz-color-trust-sage-text);
 
   --color-border-primary: #e8dde8;
   --color-border-secondary: #f0e8f0;
-  --color-border-focus: var(--kz-color-soft-rose);
+  --color-border-focus: var(--kz-color-rose-strong);
 
   --color-accent-primary: var(--kz-color-soft-rose);
   --color-accent-primary-hover: #c895a8;
@@ -54,6 +57,19 @@
   --space-8: 4rem;
   --space-9: 6rem;
   --space-10: 8rem;
+  --space-12: 10rem;
+
+  /* Pill CTA — unified touch target */
+  --btn-pill-min-h: 2.75rem;
+  --btn-pill-py: 0.625rem;
+  --btn-pill-px: 1.25rem;
+  --btn-pill-font: 0.6875rem;
+  --btn-pill-letter: 0.1em;
+  --btn-pill-py-ghost: 0.5rem;
+  --btn-pill-px-ghost: 1rem;
+  --btn-pill-font-ghost: 0.625rem;
+  --btn-pill-min-h-card: 2.5rem;
+  --btn-pill-font-card: 0.625rem;
 
   /* Typography */
   --font-family-display: var(--font-noto-serif), "Noto Serif TC", serif;
@@ -102,6 +118,9 @@
   /* Layout */
   --container-max: 72rem;
   --header-height: 4.5rem;
+
+  /* Promo / journal poster frames — matches source assets (~824×1024) */
+  --kz-aspect-poster: 4/5;
 }
 
 [data-theme="dark"] {

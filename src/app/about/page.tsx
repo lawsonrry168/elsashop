@@ -1,47 +1,47 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BrandLogo } from "@/components/BrandLogo";
 import { BookingCTA } from "@/components/BookingCTA";
 import { TelCta, WhatsAppCta } from "@/components/conversion/CtaLinks";
 import { BusinessHours } from "@/components/BusinessHours";
+import { CmsPageHero } from "@/components/CmsPageHero";
 import { EditorialImage } from "@/components/EditorialImage";
 import { EditorialPetalStats } from "@/components/EditorialPetalStats";
 import { LocationMap } from "@/components/LocationMap";
-import { MoanaPageHero } from "@/components/MoanaPageHero";
+import { PageContentPanels } from "@/components/PageContentPanels";
+import { RelatedPageLinks } from "@/components/RelatedPageLinks";
 import { images } from "@/data/images";
-import { moanaPetalIntro, moanaPetalStats } from "@/data/moana-stats";
 import { site } from "@/data/site";
+import { getInnerPage, getInnerPageMetadata } from "@/lib/cms/inner-pages";
+import { getAboutContactContent, getTrustContent } from "@/lib/cms/site-content";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "關於我們",
-  description: site.description,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const meta = await getInnerPageMetadata("about");
+  return buildPageMetadata({
+    title: meta.title,
+    description: meta.description || site.description,
+    path: meta.path,
+  });
+}
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [page, trust, contact] = await Promise.all([
+    getInnerPage("about"),
+    getTrustContent(),
+    getAboutContactContent(),
+  ]);
+
   return (
     <>
       <section className="moana-page">
         <div className="container-kz">
-          <MoanaPageHero
-            watermark="About"
-            eyebrow={site.nameEn}
-            title="關於我們"
-            lead={
-              <p>
-                {site.legalName}｜
-                <strong className="text-kz-brand-pink">{site.studioTag}</strong>
-                <br />
-                {site.serviceKeywords}
-              </p>
-            }
-          >
-            <BrandLogo className="brand-logo--about moana-page-hero__logo" />
-          </MoanaPageHero>
+          <CmsPageHero hero={page.hero} />
 
           <EditorialPetalStats
-            items={moanaPetalStats}
+            items={trust.petalStats}
             eyebrow="Trust"
-            intro={moanaPetalIntro}
+            intro={trust.petalIntro}
+            highlights={trust.petalHighlights}
           />
 
           <div className="moana-about">
@@ -49,11 +49,12 @@ export default function AboutPage() {
               <EditorialImage
                 {...images.studio.brandPoster}
                 aspect="portrait"
+                posterSize="sm"
                 className="moana-about__brand"
               />
               <EditorialImage
                 {...images.studio.interior}
-                aspect="landscape"
+                aspect="promo"
                 className="moana-about__image"
               />
             </div>
@@ -67,42 +68,10 @@ export default function AboutPage() {
               <p className="moana-about__lead">{site.description}</p>
             </div>
 
-            <div className="moana-panel">
-              <h2 className="moana-panel__title">我們的理念</h2>
-              <p>
-                康姿健相信，你的皮膚是你最好的配飾。我們以
-                <strong>量膚定制</strong>為核心，結合醫美級儀器、西班牙醫學級護膚與傳統理療手藝，
-                為每位客人提供專屬的美容與痛症管理方案。
-              </p>
-              <p>
-                作為屯門一人工作室，我們堅持
-                <strong className="text-kz-brand-pink">單次收費</strong>、明碼實價、
-                <strong className="text-kz-sage">絕無硬銷</strong>
-                — 讓你在安靜舒適的空間裡，專心享受屬於自己的 Me Time。
-              </p>
-            </div>
-
-            <div className="moana-panel">
-              <h2 className="moana-panel__title">服務範圍</h2>
-              <ul className="moana-panel__list">
-                <li>皮膚管理 — 量膚定制、果酸煥膚、等離子淨痘</li>
-                <li>醫美儀器 — 激光祛斑、膠原提升、微針射頻</li>
-                <li>痛症理療 — 退背、拔罐、刮痧等傳統理療護理</li>
-                <li>男賓護理 — 獨立專區，私密舒適</li>
-              </ul>
-            </div>
-
-            <div className="moana-panel">
-              <h2 className="moana-panel__title">專業資歷</h2>
-              <ul className="moana-panel__list">
-                {site.credentialsFull.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            <PageContentPanels panels={page.panels} className="" />
 
             <div className="moana-panel moana-panel--contact">
-              <h2 className="moana-panel__title">聯絡我們</h2>
+              <h2 className="moana-panel__title">{contact.title}</h2>
               <dl className="moana-contact">
                 <div>
                   <dt>電話</dt>
@@ -150,6 +119,8 @@ export default function AboutPage() {
               <BusinessHours />
               <LocationMap />
             </div>
+
+            <RelatedPageLinks path="/about" title="探索其他頁面" />
           </div>
         </div>
       </section>

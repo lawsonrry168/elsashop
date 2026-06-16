@@ -7,7 +7,7 @@ export const site = {
   serviceKeywords:
     "屯門美容｜激光祛斑｜膠原提升｜等離子淨痘煥膚｜退背",
   description:
-    "屯門溫馨美容一人工作室。皮膚管理、痛症理療、激光祛斑、膠原提升、等離子淨痘煥膚、退背。量膚定制、單次收費、絕無硬銷。",
+    "屯門溫馨美容一人工作室。皮膚管理、痛症理療、激光祛斑、膠原提升、等離子淨痘、退背。先量膚再建議，單次收費，唔綁套票。",
   studioTag: "溫馨美容一人工作室",
   services: ["屯門美容", "皮膚管理", "痛症理療"],
   location: "屯門",
@@ -67,6 +67,62 @@ export const navItems = [
   { label: "療程", href: "/treatments" },
   { label: "量膚定制", href: "/skin-analysis" },
   { label: "男賓護理", href: "/men" },
+  { label: "痛症理療", href: "/wellness" },
   { label: "醫美知識", href: "/journal" },
+  { label: "常見問題", href: "/faq" },
   { label: "關於", href: "/about" },
 ] as const;
+
+/** 全站主要頁面 — 首頁導覽格與頁尾完整連結 */
+export const sitePages = [
+  {
+    label: "療程",
+    href: "/treatments",
+    eyebrow: "Treatments",
+    desc: "激光祛斑、膠原提升、微針射頻、果酸煥膚等醫美級療程。",
+  },
+  {
+    label: "量膚定制",
+    href: "/skin-analysis",
+    eyebrow: "Skin Analysis",
+    desc: "西班牙 TEGODER 果酸 — 先分析膚況，再建議專屬配方。",
+  },
+  {
+    label: "男賓護理",
+    href: "/men",
+    eyebrow: "Men's Care",
+    desc: "針清、激光護理、深層清潔 — 獨立入口，私密舒適。",
+  },
+  {
+    label: "醫美知識",
+    href: "/journal",
+    eyebrow: "Journal",
+    desc: "果酸、暗瘡、敏感肌 — 慢慢睇，慢慢了解。",
+  },
+  {
+    label: "痛症理療",
+    href: "/wellness",
+    eyebrow: "Wellness",
+    desc: "遠紅外線焗倉、退背、拔罐、刮痧等傳統理療。",
+  },
+  {
+    label: "關於",
+    href: "/about",
+    eyebrow: "About",
+    desc: "工作室理念、專業資歷、營業時間與地圖。",
+  },
+  {
+    label: "常見問題",
+    href: "/faq",
+    eyebrow: "FAQ",
+    desc: "價格、預約、療程 — 十五條最常問嘅問題。",
+  },
+  {
+    label: "預約",
+    href: "/book",
+    eyebrow: "Booking",
+    desc: "三步選好意向，透過 WhatsApp、Instagram 或致電聯絡。",
+  },
+] as const;
+
+export const footerNavItems = sitePages;

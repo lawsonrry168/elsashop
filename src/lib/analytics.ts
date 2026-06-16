@@ -2,7 +2,8 @@ export type ConversionEvent =
   | "generate_lead"
   | "select_promotion"
   | "funnel_step"
-  | "funnel_complete";
+  | "funnel_complete"
+  | "page_engagement";
 
 export type ConversionPayload = {
   cta_id: string;
@@ -47,5 +48,13 @@ export function trackFunnelStep(
     step_index: stepIndex,
     step_name: stepName,
     ...extra,
+  });
+}
+
+export function trackPageEngagement(page: string, seconds: number) {
+  trackConversion("page_engagement", {
+    cta_id: page || "/",
+    step_name: `${seconds}s`,
+    page,
   });
 }

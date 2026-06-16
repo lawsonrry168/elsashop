@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 
 const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0] as const;
@@ -12,7 +13,12 @@ function getHongKongWeekday(): number {
 }
 
 export function BusinessHours() {
-  const today = getHongKongWeekday();
+  const [today, setToday] = useState<number | null>(null);
+
+  useEffect(() => {
+    setToday(getHongKongWeekday());
+  }, []);
+
   const scheduleByDay = Object.fromEntries(
     site.businessHours.schedule.map((item) => [item.day, item]),
   );
@@ -29,7 +35,7 @@ export function BusinessHours() {
         {WEEK_ORDER.map((day) => {
           const item = scheduleByDay[day];
           if (!item) return null;
-          const isToday = day === today;
+          const isToday = today !== null && day === today;
 
           return (
             <li

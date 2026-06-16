@@ -1,46 +1,55 @@
 import Link from "next/link";
 import { WhatsAppCta } from "@/components/conversion/CtaLinks";
+import type { ProcessStepItem } from "@/data/site-content";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
-const steps = [
-  {
-    num: "01",
-    title: "膚質分析",
-    desc: "專業量膚，了解膚質、問題與需求。",
-  },
-  {
-    num: "02",
-    title: "對症配方",
-    desc: "按分析結果建議適合療程與配方。",
-  },
-  {
-    num: "03",
-    title: "單次療程",
-    desc: "明碼或諮詢報價，你決定做不做。",
-  },
-  {
-    num: "04",
-    title: "家居建議",
-    desc: "可選家居護理建議，延續療程效果。",
-  },
-];
+export type ProcessStepsContent = {
+  sectionLabel: string;
+  title: string;
+  steps: ProcessStepItem[];
+};
+
+type Props = {
+  embedded?: boolean;
+  bare?: boolean;
+  showCta?: boolean;
+  showLinks?: boolean;
+  hideHeading?: boolean;
+  content?: ProcessStepsContent;
+};
+
+const defaultContent: ProcessStepsContent = {
+  sectionLabel: "Skin Analysis",
+  title: "量膚定制流程",
+  steps: [
+    { num: "01", title: "膚質分析", desc: "先幫你量膚，了解膚質同煩惱。" },
+    { num: "02", title: "對症配方", desc: "跟住分析結果，建議啱嘅療程同配方。" },
+    { num: "03", title: "單次療程", desc: "明碼或者諮詢報價，做唔做由你決定。" },
+    { num: "04", title: "家居建議", desc: "有需要會俾家居護理貼士，延續效果。" },
+  ],
+};
 
 export function ProcessSteps({
   embedded = false,
+  bare = false,
   showCta = false,
-}: {
-  embedded?: boolean;
-  showCta?: boolean;
-}) {
-  const content = (
+  showLinks = false,
+  hideHeading = false,
+  content = defaultContent,
+}: Props) {
+  const body = (
     <>
-      <p className="moana-section-label">
-        <span className="moana-section-label__rule" aria-hidden />
-        Skin Analysis
-      </p>
-      <h2 className="moana-process__title">量膚定制流程</h2>
+      {!hideHeading && (
+        <>
+          <p className="moana-section-label">
+            <span className="moana-section-label__rule" aria-hidden />
+            {content.sectionLabel}
+          </p>
+          <h2 className="moana-process__title">{content.title}</h2>
+        </>
+      )}
       <ol className="moana-process">
-        {steps.map((step) => (
+        {content.steps.map((step) => (
           <li key={step.num} className="moana-process__item">
             <span className="moana-process__num">{step.num}</span>
             <div>
@@ -70,16 +79,40 @@ export function ProcessSteps({
           </Link>
         </div>
       )}
+      {showLinks && !showCta && (
+        <p className="moana-home__link-row">
+          <Link
+            href="/skin-analysis"
+            className="moana-pill-btn moana-pill-btn--dark"
+            data-cta-id="cta_process_skin_page"
+          >
+            了解量膚定制
+            <span aria-hidden>→</span>
+          </Link>
+          <Link
+            href="/book"
+            className="moana-pill-btn moana-pill-btn--ghost"
+            data-cta-id="cta_process_book_funnel"
+          >
+            引導式預約
+            <span aria-hidden>→</span>
+          </Link>
+        </p>
+      )}
     </>
   );
 
+  if (bare) {
+    return <div className="moana-process-block">{body}</div>;
+  }
+
   if (embedded) {
-    return <section className="moana-home__chapter">{content}</section>;
+    return <section className="moana-home__chapter">{body}</section>;
   }
 
   return (
     <section className="moana-page moana-page--band">
-      <div className="container-kz">{content}</div>
+      <div className="container-kz">{body}</div>
     </section>
   );
 }

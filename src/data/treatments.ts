@@ -41,7 +41,7 @@ export const treatments: Treatment[] = [
   withImage({
     slug: "tegoder-peel",
     name: "西班牙 TEGODER 量膚定制果酸療程",
-    tagline: "4 款專屬果酸配方，針對油性、敏感、暗沉、熟齡肌，對症下藥。",
+    tagline: "4 款專屬果酸配方，針對油性、敏感、暗沉、熟齡肌，量膚之後對症建議。",
     problems: ["暗沉", "敏感", "熟齡", "油性"],
     category: "果酸煥膚",
     priceType: "consult",
@@ -51,7 +51,7 @@ export const treatments: Treatment[] = [
   withImage({
     slug: "plaser-rf",
     name: "PLASER 隔空離子熱能射頻再生儀",
-    tagline: "德國 Flyzer 專利，等離子 + 射頻，殺菌美白緊緻一次過。",
+    tagline: "德國 Flyzer 專利，等離子 + 射頻，殺菌、提亮、緊緻一齊做。",
     problems: ["鬆弛", "暗沉", "毛孔"],
     category: "射頻緊緻",
     priceType: "consult",
@@ -92,7 +92,7 @@ export const treatments: Treatment[] = [
   withImage({
     slug: "collazen",
     name: "COLLAZEN 膠原美肌小旋風",
-    tagline: "5 合 1 全效護理：清潔、補濕、HIFU 拉提、RF 膠原、Cryo 修復。",
+    tagline: "5 合 1 綜合護理：清潔、補濕、HIFU 拉提、RF 膠原、Cryo 修復。",
     problems: ["鬆弛", "暗沉", "乾燥"],
     category: "綜合儀器",
     priceType: "consult",

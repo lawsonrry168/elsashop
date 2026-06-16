@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { JournalPost } from "@/data/journal";
+import { formatJournalDate, journalDateTimeAttr } from "@/lib/format-date";
 
 export function JournalList({ posts }: { posts: JournalPost[] }) {
   return (
@@ -27,7 +28,12 @@ export function JournalList({ posts }: { posts: JournalPost[] }) {
               <h3 className="journal-index__title">{post.title}</h3>
               <p className="journal-index__excerpt">{post.excerpt}</p>
             </div>
-            <time className="journal-index__date">{post.date}</time>
+            <time
+              className="journal-index__date"
+              dateTime={journalDateTimeAttr(post.date)}
+            >
+              {formatJournalDate(post.date)}
+            </time>
             <span className="journal-index__arrow" aria-hidden="true">
               →
             </span>

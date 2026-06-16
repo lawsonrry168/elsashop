@@ -18,8 +18,8 @@ export function TreatmentFilterCta({ category, problem, count }: Props) {
     <div className="conversion-filter-cta">
       <p className="conversion-filter-cta__text">
         {hasFilter
-          ? `已篩選 ${count} 項療程 — 想直接諮詢這類問題？`
-          : `共 ${count} 項療程 — 不確定選哪個？可先量膚分析`}
+          ? `已篩選 ${count} 項療程 — 想直接問呢類問題？`
+          : `共 ${count} 項療程 — 唔肯定揀邊個？可以先量膚分析`}
       </p>
       <WhatsAppCta
         ctaId="cta_whatsapp_treatments_filtered"

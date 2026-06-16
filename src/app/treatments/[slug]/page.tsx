@@ -4,39 +4,48 @@ import { notFound } from "next/navigation";
 import { BookingCTA } from "@/components/BookingCTA";
 import { InstagramCta, WhatsAppCta } from "@/components/conversion/CtaLinks";
 import { EditorialImage } from "@/components/EditorialImage";
-import { getTreatment, treatments } from "@/data/treatments";
+import {
+  getTreatment,
+  getTreatmentDetail,
+  getTreatments,
+} from "@/lib/cms/queries";
+import { buildPageMetadata } from "@/lib/seo";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
+  const treatments = await getTreatments();
   return treatments.map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const treatment = getTreatment(slug);
+  const treatment = await getTreatment(slug);
   if (!treatment) return { title: "療程" };
-  return {
+  return buildPageMetadata({
     title: treatment.name,
     description: treatment.tagline,
-  };
+    path: `/treatments/${slug}`,
+    image: treatment.image,
+  });
 }
 
 export default async function TreatmentDetailPage({ params }: Props) {
   const { slug } = await params;
-  const treatment = getTreatment(slug);
+  const treatment = await getTreatment(slug);
   if (!treatment) notFound();
 
+  const details = await getTreatmentDetail(slug);
   const bookMessage = whatsappMessages.treatment(treatment.name);
 
   return (
     <>
       <section className="moana-page">
-        <div className="container-kz max-w-3xl">
+        <div className="container-kz max-w-2xl">
           <Link
             href="/treatments"
-            className="font-ui text-sm text-kz-rose no-underline hover:underline"
+            className="font-ui text-sm text-kz-rose-strong no-underline hover:underline"
             data-cta-id="cta_treatment_back"
           >
             ← 返回療程
@@ -90,28 +99,64 @@ export default async function TreatmentDetailPage({ params }: Props) {
       </section>
 
       <section className="section-kz">
-        <div className="container-kz max-w-3xl space-y-10">
+        <div className="container-kz max-w-2xl space-y-10">
           {treatment.image && (
             <EditorialImage
               src={treatment.image}
               alt={treatment.imageAlt ?? treatment.name}
-              aspect="landscape"
+              aspect="promo"
+              posterSize="sm"
             />
           )}
           <div>
             <h2 className="font-serif text-xl font-semibold text-kz-plum">適合對象</h2>
             <p className="mt-3 text-sm leading-relaxed text-kz-plum-muted">
-              針對 {treatment.problems.join("、")} 等肌膚問題。建議先進行量膚分析，由專業人員評估是否適合。
+              {details?.suitableFor ??
+                `針對 ${treatment.problems.join("、")} 等肌膚問題。建議先進行量膚分析，由專業人員評估是否適合。`}
             </p>
           </div>
           <div>
             <h2 className="font-serif text-xl font-semibold text-kz-plum">療程特色</h2>
             <ul className="mt-3 list-inside list-disc space-y-2 text-sm text-kz-plum-muted">
-              <li>單次收費，絕無硬銷套裝</li>
-              <li>量膚定制，對症建議</li>
-              <li>醫美級儀器，專業操作</li>
+              {(details?.features ?? [
+                "單次收費，不綁套票",
+                "量膚定制，對症建議",
+                "醫美級儀器，專業操作",
+              ]).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
+          {details?.processSteps && (
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-kz-plum">療程流程</h2>
+              <ol className="mt-3 list-inside list-decimal space-y-2 text-sm text-kz-plum-muted">
+                {details.processSteps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </div>
+          )}
+          {details?.aftercare && (
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-kz-plum">療程後護理</h2>
+              <ul className="mt-3 list-inside list-disc space-y-2 text-sm text-kz-plum-muted">
+                {details.aftercare.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {details?.notes && (
+            <div className="rounded-2xl border border-kz-lilac/80 bg-kz-lilac/20 p-5">
+              <h2 className="font-serif text-lg font-semibold text-kz-plum">注意事項</h2>
+              <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-kz-plum-muted">
+                {details.notes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div className="conversion-treatment-hero-cta">
             <WhatsAppCta
               ctaId="cta_whatsapp_treatment_detail_footer"
@@ -135,7 +180,7 @@ export default async function TreatmentDetailPage({ params }: Props) {
 
       <BookingCTA
         title="還有其他肌膚問題？"
-        subtitle="預約量膚分析，我們會為你建議最適合的療程組合。"
+        subtitle="預約量膚分析，我們會按你的膚況建議最適合的療程組合。"
         whatsappMessage={whatsappMessages.skinAnalysis}
         ctaIdPrefix="cta_treatment_detail_booking"
       />

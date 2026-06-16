@@ -42,7 +42,7 @@ export function PremiumTestimonials() {
               <button
                 key={item.author}
                 type="button"
-                className={`premium-testimonials__portrait overflow-hidden transition-all duration-500 ${i === active ? "premium-testimonials__portrait--active" : ""}`}
+                className={`premium-testimonials__portrait overflow-hidden transition-[opacity,box-shadow,transform] duration-500 ${i === active ? "premium-testimonials__portrait--active" : ""}`}
                 onClick={() => setActive(i)}
                 aria-label={`查看 ${item.author} 的分享`}
                 aria-pressed={i === active}
@@ -52,13 +52,17 @@ export function PremiumTestimonials() {
                   alt=""
                   width={120}
                   height={150}
-                  className="object-cover w-full h-full transition-transform duration-700 ease-out hover:scale-105"
+                  className="object-cover w-full h-full transition-transform duration-700 ease-out hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
                 />
               </button>
             ))}
           </div>
 
-          <blockquote className="premium-testimonials__quote">
+          <blockquote
+            className="premium-testimonials__quote"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             <p>「{t.quote}」</p>
             <footer>— {t.author}</footer>
           </blockquote>

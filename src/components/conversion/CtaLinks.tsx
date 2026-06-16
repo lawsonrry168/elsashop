@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ComponentProps, MouseEvent, ReactNode } from "react";
-import { trackCtaClick, trackFunnelStep } from "@/lib/analytics";
+import { trackFunnelStep } from "@/lib/analytics";
 import { site, telUrl, whatsappUrl } from "@/data/site";
 
 type TrackProps = {
@@ -15,7 +15,6 @@ function handleTrack(
   ctaId: string,
   onTrack?: () => void,
 ) {
-  trackCtaClick(ctaId);
   onTrack?.();
 }
 
@@ -56,6 +55,8 @@ export function WhatsAppCta({
 type InstagramCtaProps = TrackProps & {
   children: ReactNode;
   className?: string;
+  funnelStep?: { index: number; name: string };
+  intent?: string;
 };
 
 export function InstagramCta({
@@ -63,6 +64,8 @@ export function InstagramCta({
   children,
   className,
   onTrack,
+  funnelStep,
+  intent,
 }: InstagramCtaProps) {
   return (
     <a
@@ -71,7 +74,15 @@ export function InstagramCta({
       rel="noopener noreferrer"
       className={className}
       data-cta-id={ctaId}
-      onClick={(e) => handleTrack(e, ctaId, onTrack)}
+      onClick={(e) => {
+        if (funnelStep) {
+          trackFunnelStep(funnelStep.index, funnelStep.name, {
+            channel: "instagram",
+            intent,
+          });
+        }
+        handleTrack(e, ctaId, onTrack);
+      }}
     >
       {children}
     </a>

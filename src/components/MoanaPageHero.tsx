@@ -7,7 +7,6 @@ type Props = {
   lead?: ReactNode;
   children?: ReactNode;
   className?: string;
-  variant?: "light" | "dark";
 };
 
 export function MoanaPageHero({
@@ -17,12 +16,9 @@ export function MoanaPageHero({
   lead,
   children,
   className = "",
-  variant = "light",
 }: Props) {
   return (
-    <header
-      className={`moana-page-hero moana-page-hero--${variant} ${className}`.trim()}
-    >
+    <header className={`moana-page-hero ${className}`.trim()}>
       <p className="moana-page-hero__watermark" aria-hidden="true">
         {watermark}
       </p>

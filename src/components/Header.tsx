@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { IconClose, IconMenu } from "@/components/icons/KzIcons";
 import { navItems } from "@/data/site";
@@ -10,10 +10,51 @@ import { navItems } from "@/data/site";
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileNavRef = useRef<HTMLElement>(null);
+
+  const closeMenu = useCallback(() => {
+    setOpen(false);
+    menuButtonRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const nav = mobileNavRef.current;
+    const focusable = nav?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled])',
+    );
+    focusable?.[0]?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeMenu();
+        return;
+      }
+
+      if (event.key !== "Tab" || !focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open, closeMenu]);
 
   return (
     <header className="header-editorial sticky top-0 z-50">
-      <div className="container-kz flex h-[4.25rem] items-center justify-between lg:h-[var(--header-height)]">
+      <div className="container-kz flex h-[var(--header-height)] items-center justify-between">
         <Link href="/" className="brand-logo-link group no-underline">
           <BrandLogo priority />
           <span className="sr-only">康姿健 Kang Zi Jian</span>
@@ -52,11 +93,13 @@ export function Header() {
             預約
           </Link>
           <button
+            ref={menuButtonRef}
             type="button"
             className="conversion-touch-target flex h-11 w-11 items-center justify-center border border-kz-brand-navy/20 text-kz-brand-navy"
             aria-expanded={open}
+            aria-controls="mobile-nav"
             aria-label={open ? "關閉選單" : "開啟選單"}
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpen((prev) => !prev)}
           >
             {open ? <IconClose /> : <IconMenu />}
           </button>
@@ -65,7 +108,9 @@ export function Header() {
 
       {open && (
         <nav
-          className="border-t border-kz-plum/10 bg-kz-skin px-5 py-4 lg:hidden"
+          ref={mobileNavRef}
+          id="mobile-nav"
+          className="border-t border-kz-plum/10 px-5 py-4 lg:hidden"
           aria-label="手機導覽"
         >
           <ul className="flex flex-col">
@@ -75,22 +120,12 @@ export function Header() {
                   href={item.href}
                   className="conversion-touch-target block py-4 font-ui text-xs uppercase tracking-widest text-kz-plum no-underline"
                   data-cta-id={`cta_mobile_nav_${item.href.replace(/\//g, "")}`}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/faq"
-                className="conversion-touch-target block py-4 font-ui text-xs uppercase tracking-widest text-kz-plum no-underline"
-                data-cta-id="cta_mobile_nav_faq"
-                onClick={() => setOpen(false)}
-              >
-                常見問題
-              </Link>
-            </li>
           </ul>
         </nav>
       )}

@@ -20,13 +20,13 @@ export const images = {
   hero: {
     main: {
       ...promo.heroWelcome,
-      alt: `${site.name}歡迎您的蒞臨 — ${site.subtitle}`,
+      alt: `${site.name}歡迎你的蒞臨 — ${site.subtitle}`,
     },
     treatment: promo.plaser,
     facial: promo.tegoder,
   },
   studio: {
-    interior: promoImage(promo.meTimeSpa, "專注享受 60 分鐘寧靜 Me Time"),
+    interior: promoImage(promo.meTimeSpa, "專注享受 60 分鐘寧靜護理"),
     brandPoster: {
       ...promo.heroShop,
       alt: `${site.nameEn} ${site.name} — ${site.subtitle}`,
@@ -64,8 +64,8 @@ export const narrativeChapters = [
     label: "01 — About",
     title: "你的皮膚，是你最好的配飾",
     body: [
-      "康姿健是屯門一間韓系皮膚管理工作室。我們相信，護膚不應該從推銷套裝開始，而應該從了解你的膚質開始。",
-      "醫美級儀器、西班牙醫學級果酸、等離子與微針射頻 — 全部以單次收費方式提供，你決定做或不做。",
+      "康姿健係屯門一間皮膚管理工作室。護膚唔應該由推銷套裝開始，而係先了解你塊面需要咩。",
+      "醫美級儀器、西班牙果酸、等離子同微針射頻 — 全部單次收費，做唔做由你話事。",
     ],
     image: promoImage(promo.bioskinCert, "BIOSKIN 2026 原廠供應證明"),
   },
@@ -74,8 +74,8 @@ export const narrativeChapters = [
     label: "02 — Promise",
     title: "先量膚，再建議",
     body: [
-      "每位客人的膚質、生活習慣與困擾都不同。我們堅持先進行專業量膚分析，再建議最適合的療程 — 不硬銷、不綁套票。",
-      "部分療程明碼單次價，部分需量膚後報價。價格透明，讓你在安心之下做決定。",
+      "每人膚質、生活習慣同煩惱都唔同。我哋會先幫你量膚，再建議啱嘅療程 — 唔綁套票、唔迫你買。",
+      "有啲療程明碼單次價，有啲要量膚後先報價。價錢講清楚，你自己安心決定。",
     ],
     image: promoImage(promo.sensitiveRepair, "脆弱肌修護方案"),
   },
@@ -84,9 +84,9 @@ export const narrativeChapters = [
     label: "03 — Space",
     title: "一人小店的私密節奏",
     body: [
-      "沒有連鎖店的喧囂，只有專注於你的護理節奏。環境舒服、資訊清晰，像翻開一本關於自己肌膚的雜誌。",
+      "冇連鎖店咁嘈，淨係專心做你嗰 part。環境舒服、講嘢直接，好似慢慢翻開一本關於自己皮膚嘅雜誌。",
     ],
-    image: promoImage(promo.meTime, "享受 Me Time 無壓力美容"),
+    image: promoImage(promo.meTime, "放鬆一下，享受無壓力 Me Time"),
   },
 ] as const;
 

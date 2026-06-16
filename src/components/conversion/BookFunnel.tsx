@@ -5,7 +5,9 @@ import { BusinessHours } from "@/components/BusinessHours";
 import { LocationMap } from "@/components/LocationMap";
 import { InstagramCta, TelCta, WhatsAppCta } from "@/components/conversion/CtaLinks";
 import { TappableOption } from "@/components/conversion/TappableOption";
+import { DmCopyHint } from "@/components/conversion/DmCopyHint";
 import { trackFunnelStep } from "@/lib/analytics";
+import { handleRadioGroupKeyDown } from "@/lib/radiogroup-keyboard";
 import { whatsappMessages } from "@/lib/whatsapp-messages";
 import { site } from "@/data/site";
 
@@ -79,14 +81,28 @@ export function BookFunnel() {
           />
         ))}
       </div>
-      <p className="conversion-funnel__step-label">
+      <p className="conversion-funnel__step-label" aria-live="polite" aria-atomic="true">
         步驟 {step + 1} / 3
       </p>
 
       {step === 0 && (
         <fieldset className="conversion-funnel__fieldset">
-          <legend className="conversion-funnel__legend">你想預約什麼？</legend>
-          <div className="conversion-funnel__options" role="radiogroup" aria-label="預約意向">
+          <legend id="funnel-intent-legend" className="conversion-funnel__legend">
+            你想預約什麼？
+          </legend>
+          <div
+            className="conversion-funnel__options"
+            role="radiogroup"
+            aria-labelledby="funnel-intent-legend"
+            onKeyDown={(event) =>
+              handleRadioGroupKeyDown(event, {
+                values: intents.map((item) => item.id),
+                current: intent ?? intents[0].id,
+                onChange: (id) => selectIntent(id as Intent),
+                orientation: "vertical",
+              })
+            }
+          >
             {intents.map((item) => (
               <TappableOption
                 key={item.id}
@@ -103,8 +119,22 @@ export function BookFunnel() {
 
       {step === 1 && intent && (
         <fieldset className="conversion-funnel__fieldset">
-          <legend className="conversion-funnel__legend">偏好聯絡方式</legend>
-          <div className="conversion-funnel__options" role="radiogroup" aria-label="聯絡方式">
+          <legend id="funnel-channel-legend" className="conversion-funnel__legend">
+            偏好聯絡方式
+          </legend>
+          <div
+            className="conversion-funnel__options"
+            role="radiogroup"
+            aria-labelledby="funnel-channel-legend"
+            onKeyDown={(event) =>
+              handleRadioGroupKeyDown(event, {
+                values: channels.map((item) => item.id),
+                current: channel ?? channels[0].id,
+                onChange: (id) => selectChannel(id as Channel),
+                orientation: "vertical",
+              })
+            }
+          >
             {channels.map((item) => (
               <TappableOption
                 key={item.id}
@@ -128,14 +158,14 @@ export function BookFunnel() {
       )}
 
       {step === 2 && intent && channel && (
-        <div className="conversion-funnel__confirm">
+        <div className="conversion-funnel__confirm" aria-live="polite">
           <p className="conversion-funnel__summary">
             已選：<strong>{intents.find((i) => i.id === intent)?.label}</strong>
             {" · "}
             <strong>{channels.find((c) => c.id === channel)?.label}</strong>
           </p>
           <p className="conversion-funnel__hint">
-            單次收費、絕無硬銷 — 點擊下方按鈕開始聯絡。
+            撳下面按鈕開始聯絡，我哋會跟住你揀嘅意向回覆。
           </p>
 
           <div className="conversion-funnel__actions">
@@ -151,13 +181,18 @@ export function BookFunnel() {
               </WhatsAppCta>
             )}
             {channel === "instagram" && (
-              <InstagramCta
-                ctaId="funnel_complete_instagram"
-                className="moana-pill-btn moana-pill-btn--dark conversion-funnel__primary"
-              >
-                前往 Instagram
-                <span aria-hidden>→</span>
-              </InstagramCta>
+              <>
+                <DmCopyHint message={waMessage} />
+                <InstagramCta
+                  ctaId="funnel_complete_instagram"
+                  className="moana-pill-btn moana-pill-btn--dark conversion-funnel__primary"
+                  funnelStep={{ index: 3, name: "funnel_complete" }}
+                  intent={intent}
+                >
+                  前往 Instagram
+                  <span aria-hidden>→</span>
+                </InstagramCta>
+              </>
             )}
             {channel === "phone" && (
               <TelCta

@@ -24,6 +24,8 @@
 .DS_Store
 *.pem
 Materials/
+.video-analysis/
+.claude/
 
 # debug
 npm-debug.log*
@@ -33,6 +35,22 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# local seed / mcp temp artifacts
+scripts/_*
+scripts/.mcpq*
+scripts/*_only.txt
+scripts/*_out.json
+scripts/*payload*
+scripts/mcp-*.mjs
+scripts/run-seed-exec.mjs
+scripts/seed-j*.sql
+scripts/seed-batch-*.sql
+scripts/seed-part*.sql
+scripts/seed-faqs.sql
+scripts/compact-videos.sql
+scripts/_tmp*
 
 # vercel
 .vercel

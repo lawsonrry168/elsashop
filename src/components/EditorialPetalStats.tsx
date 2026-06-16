@@ -1,12 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { trackCtaClick } from "@/lib/analytics";
 
 export type PetalStat = {
   value: string;
   label: string;
   caption?: string;
+  detail?: string;
   corner: "tl" | "tr" | "bl" | "br";
   href?: string;
   ctaId?: string;
@@ -16,7 +14,8 @@ type Props = {
   items: PetalStat[];
   title?: string;
   eyebrow?: string;
-  intro?: string;
+  intro?: string | string[];
+  highlights?: readonly string[];
 };
 
 type Accent = "violet" | "cyan";
@@ -110,6 +109,7 @@ function PetalBody({ item }: { item: PetalStat }) {
           {item.value}
         </p>
         <p className="moana-petals__bottom">{item.label}</p>
+        {item.detail && <p className="moana-petals__detail">{item.detail}</p>}
       </div>
     </>
   );
@@ -124,7 +124,6 @@ function PetalCard({ item }: { item: PetalStat }) {
         href={item.href}
         className={`${className} moana-petals__petal--link`}
         data-cta-id={item.ctaId ?? `cta_petal_${item.corner}`}
-        onClick={() => trackCtaClick(item.ctaId ?? `cta_petal_${item.corner}`)}
       >
         <PetalBody item={item} />
       </Link>
@@ -143,7 +142,14 @@ export function EditorialPetalStats({
   title = "為什麼選康姿健",
   eyebrow = "Trust",
   intro,
+  highlights,
 }: Props) {
+  const introParagraphs = intro
+    ? Array.isArray(intro)
+      ? intro
+      : [intro]
+    : [];
+
   return (
     <section className="moana-petals" aria-label={title}>
       <div className="moana-petals__head">
@@ -152,7 +158,22 @@ export function EditorialPetalStats({
           {eyebrow}
         </p>
         <h2 className="moana-petals__title">{title}</h2>
-        {intro && <p className="moana-petals__intro">{intro}</p>}
+        {introParagraphs.length > 0 && (
+          <div className="moana-petals__intro-block">
+            {introParagraphs.map((paragraph) => (
+              <p key={paragraph.slice(0, 24)} className="moana-petals__intro">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        )}
+        {highlights && highlights.length > 0 && (
+          <ul className="moana-petals__highlights">
+            {highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <div className="moana-petals__stage">

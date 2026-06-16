@@ -5,7 +5,7 @@ import { whatsappMessages } from "@/lib/whatsapp-messages";
 
 const peelTypes = [
   { name: "油性 / 暗瘡", desc: "30% 水楊酸 + 杏仁酸，深層清潔溶解粉刺。" },
-  { name: "敏感 / 泛紅", desc: "21% 極溫和杏仁酸，打破敏感肌宿命。" },
+  { name: "敏感 / 泛紅", desc: "21% 極溫和杏仁酸，循序修護，幫敏感肌慢慢穩定。" },
   { name: "暗沉 / 色素", desc: "針對色沉、膚色不均，提亮透亮。" },
   { name: "熟齡 / 乾燥", desc: "溫和更新角質，改善粗糙與乾紋。" },
 ];

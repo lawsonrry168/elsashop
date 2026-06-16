@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
-import { navItems, site, telUrl } from "@/data/site";
+import { footerNavItems } from "@/data/site";
+import { getSite } from "@/lib/cms/site";
 
-export function Footer() {
+export async function Footer() {
+  const site = await getSite();
+  const telHref = `tel:+${site.phoneTel}`;
+
   return (
     <footer className="border-t border-kz-lilac/60 bg-kz-lilac/30">
-      <div className="container-kz section-kz !py-12">
+      <div className="container-kz section-kz">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="inline-block no-underline">
@@ -24,7 +28,7 @@ export function Footer() {
               導覽
             </p>
             <ul className="mt-4 space-y-2">
-              {navItems.map((item) => (
+              {footerNavItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -34,14 +38,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-sm text-kz-plum no-underline hover:text-kz-rose"
-                >
-                  常見問題
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -53,7 +49,7 @@ export function Footer() {
               <li>{site.location}</li>
               <li>{site.address}</li>
               <li>
-                <a href={telUrl()} className="text-kz-plum no-underline hover:text-kz-rose">
+                <a href={telHref} className="text-kz-plum no-underline hover:text-kz-rose">
                   {site.phone}
                 </a>
               </li>
@@ -94,6 +90,16 @@ export function Footer() {
                   className="text-sm text-kz-plum no-underline hover:text-kz-rose"
                 >
                   小紅書
+                </a>
+              </li>
+              <li>
+                <a
+                  href={site.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-kz-plum no-underline hover:text-kz-rose"
+                >
+                  Facebook
                 </a>
               </li>
             </ul>

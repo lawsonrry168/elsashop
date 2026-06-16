@@ -1,0 +1,417 @@
+/* CMS 夜視模式 — html[data-admin-theme="dark"] 由 AdminThemeProvider 設定 */
+
+html[data-admin-theme="dark"] .kz-admin {
+  color-scheme: dark;
+  background:
+    radial-gradient(
+      ellipse 120% 80% at 100% 0%,
+      color-mix(in srgb, var(--kz-color-deep-plum) 35%, transparent),
+      transparent 55%
+    ),
+    #121018;
+  color: #ece8ef;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__sidebar {
+  background: #1a1624;
+  border-right-color: #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__sidebar-foot {
+  border-top-color: #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__brand-text {
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__brand-text small,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__nav-label,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__nav-link-hint {
+  color: #8a8494;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__nav a {
+  color: #c4bcc8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__nav a:hover {
+  background: #2e2938;
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__nav a[aria-current="page"] {
+  background: color-mix(in srgb, var(--kz-color-brand-pink) 16%, #222030);
+  color: #f5e4ec;
+  box-shadow: inset 2px 0 0 var(--kz-color-brand-pink);
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__nav a[aria-current="page"] .kz-admin__nav-link-hint {
+  color: #b8a8b4;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__logout {
+  background: #222030;
+  border-color: #3d3848;
+  color: #c4bcc8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__logout:hover {
+  background: #2e2938;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__back-site {
+  color: #e8a4b8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__title,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__section-title,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__card-title,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__legend,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__guide-h2,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__stat-value,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__header-link {
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__subtitle,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__section-lead,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__card-lead,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__login-lead,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__guide-section p,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__guide-section li {
+  color: #b8b0bc;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__header-link--muted {
+  color: #9a919c;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__card,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__stat-card,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__media-card,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__modal,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__section-item {
+  background: #222030;
+  border-color: #3d3848;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__card--muted {
+  background: #2a2535;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__field input,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__field textarea,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__field select,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__list-search input,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__list-select,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__page-btn,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__combo select,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__combo input {
+  background: #2a2535;
+  border-color: #4a4458;
+  color: #ece8ef;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__field label,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__table th {
+  color: #8a8494;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__table th,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__table td {
+  border-bottom-color: #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__table--list thead th {
+  background: #2a2535;
+  box-shadow: 0 1px 0 #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__list-toolbar,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__list-footer {
+  background: #1e1a26;
+  border-color: #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__btn--ghost {
+  background: #2a2535;
+  border-color: #4a4458;
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__btn--ghost:hover {
+  background: #353040;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__quick-btn {
+  background: #2e2938;
+  border-color: #4a4458;
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__quick-btn:hover {
+  background: #3a3545;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__quick-btn--ghost {
+  background: #222030;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__tip-box,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__tips,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__guide-note,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__spec-box,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__content-subcard,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide {
+  background: #2a2535;
+  border-color: #4a4458;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__tracking-group {
+  background: #2a2535;
+  border-color: #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__tracking-group summary {
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__metric-list strong,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__tip-title,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__spec-box__title,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__content-subcard-title,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__location,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__heading,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide__heading {
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__badge {
+  background: #353040;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__badge--draft {
+  background: color-mix(in srgb, var(--kz-color-brand-pink) 22%, #222030);
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__alert--draft {
+  background: color-mix(in srgb, var(--kz-color-brand-pink) 18%, #222030);
+  border-color: color-mix(in srgb, var(--kz-color-brand-pink) 35%, transparent);
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__alert--ok,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__save-notice,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__status-pill--on {
+  background: color-mix(in srgb, var(--kz-color-trust-sage) 22%, #222030);
+  border-color: color-mix(in srgb, var(--kz-color-trust-sage) 35%, transparent);
+  color: #b8d4bc;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__save-notice a {
+  color: #e8a4b8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__status-pill--off {
+  background: #353040;
+  color: #9a919c;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__override-badge--custom {
+  background: color-mix(in srgb, var(--kz-color-soft-rose) 25%, #222030);
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__override-badge--default {
+  background: #353040;
+  color: #9a919c;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__activity-item {
+  border-bottom-color: #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__activity-item:hover .kz-admin__activity-title {
+  color: #e8a4b8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__text-link,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__guide-toc a,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__content-preview-link,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__tips-list a {
+  color: #e8a4b8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__drag-handle {
+  background: #353040;
+  color: #9a919c;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__section-expand {
+  border-color: #4a4458;
+  color: #c4bcc8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__section-expand:hover {
+  background: #353040;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__section-item__index {
+  background: #353040;
+  color: #9a919c;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__form-actions,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__content-section {
+  border-top-color: #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__section-item__fields {
+  border-top-color: #3d3848;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide__cell,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide__card,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__cell,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--hero,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--quote,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__image-placeholder,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__quote-card {
+  background: #353040;
+  border-color: #4a4458;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__hero-preview,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__seo-preview,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__panel-preview {
+  background: #353040;
+  border-color: #4a4458;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__watermark {
+  color: color-mix(in srgb, #f0dce8 12%, transparent);
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--label,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--muted {
+  color: #9a919c;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--title,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--h1 {
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--seo-title {
+  color: #8ab4f8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--divider {
+  border-top-color: #4a4458;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--btn {
+  background: #f0dce8;
+  color: #1a1624;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__highlight {
+  color: #e8a4b8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__bullet-list {
+  color: #c4bcc8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--quote {
+  background: #3d3848;
+  border-color: #4a4458;
+  color: #ece8ef;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide__slot--4,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--muted {
+  color: #9a919c;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide__slot--1 {
+  background: #3d3848;
+  color: #b8b0bc;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide__slot--2,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide__slot--3,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__cell-label,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__slot--title {
+  color: #f0dce8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__field-hint,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__module-guide__note,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__petal-guide__note,
+html[data-admin-theme="dark"] .kz-admin .kz-admin__list-hint--warn {
+  color: #b8a8b4;
+}
+
+html[data-admin-theme="dark"] .kz-admin .text-kz-plum-muted {
+  color: #9a919c !important;
+}
+
+html[data-admin-theme="dark"] .kz-admin .text-kz-rose {
+  color: #e8a4b8 !important;
+}
+
+html[data-admin-theme="dark"] .kz-admin .text-red-600,
+html[data-admin-theme="dark"] .kz-admin .text-red-700 {
+  color: #f87171 !important;
+}
+
+html[data-admin-theme="dark"] .kz-admin code {
+  background: #353040;
+  color: #e8dce8;
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__eyebrow {
+  color: #e8a4b8;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__theme-toggle {
+  background: #222030;
+  border-color: #4a4458;
+  color: #ece8ef;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__theme-toggle:hover {
+  background: #2e2938;
+  border-color: #6a6478;
+}
+
+html[data-admin-theme="dark"] .kz-admin .moana-pill-btn--dark {
+  background: #f0dce8;
+  color: #1a1624;
+}
+
+html[data-admin-theme="dark"] .kz-admin .moana-pill-btn--dark:hover {
+  background: #fff;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__modal-backdrop {
+  background: rgb(0 0 0 / 0.65);
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__row--drag-over td {
+  background: color-mix(in srgb, var(--kz-color-brand-pink) 12%, #222030);
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__sidebar-top {
+  scrollbar-color: #4a4458 transparent;
+}
+
+html[data-admin-theme="dark"] .kz-admin .kz-admin__sidebar-top::-webkit-scrollbar-thumb {
+  background: #4a4458;
+}

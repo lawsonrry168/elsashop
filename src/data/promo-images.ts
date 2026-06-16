@@ -20,7 +20,7 @@ function file(src: string, alt: string) {
  * Do not trust filename alone; see promo-images.json `actualTitle` when present.
  */
 export const promo = {
-  heroWelcome: file("/images/promo/hero-welcome-editorial-v2.png", "康姿健歡迎您的蒞臨"),
+  heroWelcome: file("/images/promo/hero-welcome-editorial-v2.png", "康姿健歡迎你的蒞臨"),
 
   /** Brand emblem poster — not a shop interior photo */
   heroShop: file(
@@ -28,10 +28,10 @@ export const promo = {
     "康姿健 — 手法美容 · 皮膚管理 · 痛症理療",
   ),
 
-  meTime: file("/images/promo/men-facial.png", "享受 Me Time 無壓力美容"),
+  meTime: file("/images/promo/men-facial.png", "享受寧靜、無壓力的護理時光"),
   meTimeSpa: file(
     "/images/promo/plaser-rf.png",
-    "專注享受 60 分鐘寧靜 Me Time",
+    "專注享受 60 分鐘寧靜護理",
   ),
 
   spanishFacial: file("/images/promo/dr-face.png", "西班牙醫學級人手 Facial"),
@@ -43,11 +43,11 @@ export const promo = {
   eventPrep: file("/images/promo/sensitive-repair.png", "重要日子前大掃除"),
 
   drRainbow: file(
-    "/images/promo/seasonal-skincare.png",
+    "/images/promo/dr-rainbow-fir.png",
     "Dr. Rainbow 醫療級遠紅外線",
   ),
-  wellnessDetox: file("/images/promo/event-prep.png", "養生排毒 Dr. Rainbow"),
-  drFace: file("/images/promo/wellness-detox.png", "Dr. Face 遠紅外線童顏機"),
+  wellnessDetox: file("/images/promo/wellness-detox.png", "養生排毒 Dr. Rainbow"),
+  drFace: file("/images/promo/dr-face.png", "Dr. Face 遠紅外線童顏機"),
 
   plaser: file("/images/promo/collazen-atoz.png", "Air Plaser 等離子"),
   plaserRf: file("/images/promo/collazen-atoz.png", "Air Plaser 等離子"),
@@ -80,8 +80,8 @@ export const promo = {
 
   exosome: file("/images/promo/exosome.png", "BSK9 EXOSOMES 爆髮療程"),
 
-  menFacial: file("/images/promo/dr-face.png", "深層清潔護理"),
-  menLaser: file("/images/promo/air-plaser.png", "男賓激光護理"),
+  menFacial: file("/images/promo/men-facial.png", "男賓深層清潔護理"),
+  menLaser: file("/images/promo/men-laser.png", "男賓激光護理"),
 
   brandOpening: file("/images/promo/collazen-hifu-rf.png", "康姿健開工大吉"),
   cnyPrep: file("/images/promo/men-laser.png", "過年毛孔大掃除"),

@@ -12,7 +12,7 @@ export type JournalPost = {
   socialId?: string;
 };
 
-/** Preserve URLs from the first three hand-picked articles. */
+/** Preserve short URLs for the first three hand-picked articles. */
 const LEGACY_SLUGS: Record<string, string> = {
   "2606-美容唔止靠儀器-西班牙醫學級-量膚定制-果酸療程": "tegoder-custom-peel",
   "2606-暗瘡粉刺篇-油光滿面-黑頭死纏爛打-淨化平衡皮脂果酸-幫毛孔大掃除":
@@ -21,8 +21,15 @@ const LEGACY_SLUGS: Record<string, string> = {
     "sensitive-peel",
 };
 
-function slugFromId(id: string): string {
-  if (LEGACY_SLUGS[id]) return LEGACY_SLUGS[id];
+/** ASCII-only slugs — Next.js dev/prod routing breaks on long Chinese path segments. */
+function slugFromItem(item: SocialImageItem): string {
+  const legacy = LEGACY_SLUGS[item.id];
+  if (legacy) return legacy;
+  return `${item.sheet}-r${item.row}`;
+}
+
+/** Previous slug algorithm (for old bookmarks / shared links). */
+function legacySlugFromId(id: string): string {
   return id
     .replace(/[^\u4e00-\u9fff\w-]/g, "-")
     .replace(/-+/g, "-")
@@ -81,7 +88,7 @@ function dateFromSheet(sheet: string): string {
 
 function postFromSocialItem(item: SocialImageItem): JournalPost {
   return {
-    slug: slugFromId(item.id),
+    slug: slugFromItem(item),
     title: cleanTitle(item.topic),
     excerpt: excerptFromItem(item),
     category: categoryFromItem(item),
@@ -100,8 +107,62 @@ export const journalPosts: JournalPost[] = [...manifest.items]
   })
   .map(postFromSocialItem);
 
+export const journalCategories = [
+  "全部",
+  ...Array.from(new Set(journalPosts.map((p) => p.category))).sort(),
+] as const;
+
+const slugAliasToCanonical = new Map<string, string>();
+
+for (const item of manifest.items) {
+  const post = journalPosts.find((p) => p.socialId === item.id);
+  if (!post) continue;
+
+  const aliases = new Set<string>([
+    item.id,
+    legacySlugFromId(item.id),
+    `${item.sheet}-r${item.row}`,
+  ]);
+
+  for (const alias of aliases) {
+    if (alias && alias !== post.slug) {
+      slugAliasToCanonical.set(alias, post.slug);
+    }
+  }
+}
+
+function normalizeSlugParam(param: string): string {
+  try {
+    return decodeURIComponent(param).normalize("NFC").trim();
+  } catch {
+    return param.normalize("NFC").trim();
+  }
+}
+
+export function resolveJournalPost(param: string): {
+  post: JournalPost;
+  canonicalSlug: string;
+} | null {
+  const raw = normalizeSlugParam(param);
+
+  const direct = journalPosts.find(
+    (p) => p.slug === raw || p.socialId === raw,
+  );
+  if (direct) {
+    return { post: direct, canonicalSlug: direct.slug };
+  }
+
+  const aliased = slugAliasToCanonical.get(raw);
+  if (aliased) {
+    const post = journalPosts.find((p) => p.slug === aliased);
+    if (post) return { post, canonicalSlug: post.slug };
+  }
+
+  return null;
+}
+
 export function getJournalPost(slug: string) {
-  return journalPosts.find((p) => p.slug === slug);
+  return resolveJournalPost(slug)?.post;
 }
 
 export function getJournalBody(slug: string): string[] {

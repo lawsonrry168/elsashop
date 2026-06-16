@@ -20,7 +20,7 @@ const aspectClass = {
   portrait: "aspect-[3/4]",
   landscape: "aspect-[4/3]",
   square: "aspect-square",
-  promo: "aspect-[3/4]",
+  promo: "aspect-[4/5]",
   auto: "aspect-auto min-h-[280px]",
 };
 
@@ -41,7 +41,7 @@ export function EditorialImage({
   const [failed, setFailed] = useState(false);
 
   const fitClass = fit === "contain" ? "object-contain" : "object-cover";
-  const isPromo = aspect === "promo" || fit === "contain";
+  const isPromo = aspect === "promo";
 
   if (isPromo) {
     return (

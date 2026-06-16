@@ -50,7 +50,7 @@ function TreatmentCard({
           <p className="moana-slider__tagline">{treatment.tagline}</p>
           <span className="moana-slider__more font-ui">
             了解療程
-            <IconArrowRight size={13} />
+            <IconArrowRight size={14} />
           </span>
         </div>
       </Link>
@@ -74,6 +74,14 @@ export function TreatmentFeatureSlider({ treatments }: Props) {
           </p>
           <h2 className="moana-slider__title">精選療程</h2>
         </div>
+        <Link
+          href="/treatments"
+          className="moana-pill-btn moana-pill-btn--dark moana-slider__all"
+          data-cta-id="cta_home_treatments_all"
+        >
+          查看全部療程
+          <IconArrowRight size={14} />
+        </Link>
       </div>
 
       <div className="moana-marquee__viewport">
@@ -81,9 +89,18 @@ export function TreatmentFeatureSlider({ treatments }: Props) {
           className="moana-marquee__track"
           style={{ ["--marquee-duration" as string]: `${durationSec}s` }}
         >
-          {loop.map((t, i) => (
-            <TreatmentCard key={`${t.slug}-${i}`} treatment={t} index={i} />
+          {treatments.map((t, i) => (
+            <TreatmentCard key={t.slug} treatment={t} index={i} />
           ))}
+          <div className="moana-marquee__duplicate" aria-hidden="true">
+            {treatments.map((t, i) => (
+              <TreatmentCard
+                key={`${t.slug}-dup`}
+                treatment={t}
+                index={i + treatments.length}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

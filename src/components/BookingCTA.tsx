@@ -35,8 +35,8 @@ export function MobileBookingBar() {
 }
 
 export function BookingCTA({
-  title = "準備好了解你的膚質了嗎？",
-  subtitle = "透過 WhatsApp 或 Instagram DM 預約，單次收費、絕無硬銷。",
+  title = "想了解自己塊面未？",
+  subtitle = "WhatsApp 或 Instagram DM 預約就得，單次收費、唔綁套票。",
   className = "",
   whatsappMessage,
   ctaIdPrefix = "cta_booking_section",
