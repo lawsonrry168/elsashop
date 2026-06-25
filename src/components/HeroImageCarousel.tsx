@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { HeroSlide } from "@/data/hero";
 import { EditorialImage } from "@/components/EditorialImage";
+import { IconCaretLeft, IconCaretRight } from "@/components/icons/KzIcons";
 
 const AUTO_MS = 5500;
 
@@ -86,18 +87,38 @@ export function HeroImageCarousel({ slides }: Props) {
         ))}
       </div>
 
-      <div className="editorial-hero__carousel-dots" role="tablist" aria-label="選擇 Hero 主圖">
-        {slides.map((slide, i) => (
-          <button
-            key={`dot-${slide.src}-${i}`}
-            type="button"
-            role="tab"
-            aria-selected={i === index}
-            aria-label={`第 ${i + 1} 張：${slide.alt}`}
-            className={`editorial-hero__carousel-dot${i === index ? " is-active" : ""}`}
-            onClick={() => goTo(i)}
-          />
-        ))}
+      <div className="editorial-hero__carousel-controls">
+        <button
+          type="button"
+          className="editorial-hero__carousel-btn editorial-hero__carousel-btn--prev"
+          aria-label="上一張主圖"
+          onClick={() => goTo(index - 1)}
+        >
+          <IconCaretLeft size={20} />
+        </button>
+
+        <div className="editorial-hero__carousel-dots" role="tablist" aria-label="選擇 Hero 主圖">
+          {slides.map((slide, i) => (
+            <button
+              key={`dot-${slide.src}-${i}`}
+              type="button"
+              role="tab"
+              aria-selected={i === index}
+              aria-label={`第 ${i + 1} 張：${slide.alt}`}
+              className={`editorial-hero__carousel-dot${i === index ? " is-active" : ""}`}
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          className="editorial-hero__carousel-btn editorial-hero__carousel-btn--next"
+          aria-label="下一張主圖"
+          onClick={() => goTo(index + 1)}
+        >
+          <IconCaretRight size={20} />
+        </button>
       </div>
     </div>
   );

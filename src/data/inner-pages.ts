@@ -36,6 +36,8 @@ export type PageHeroDefaults = {
   ctaHref?: string;
   ctaId?: string;
   whatsappMessageKey?: "skinAnalysis" | "wellness" | "default";
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 export type InnerPageDefinition = {
@@ -64,6 +66,8 @@ export const INNER_PAGE_REGISTRY: Record<InnerPageId, InnerPageDefinition> = {
       ctaLabel: "預約量膚分析",
       ctaId: "cta_whatsapp_skin_hero",
       whatsappMessageKey: "skinAnalysis",
+      imageSrc: "/images/promo/tegoder-peel.png",
+      imageAlt: "TEGODER 量膚果酸 — 康姿健屯門皮膚管理",
     },
     defaultPanels: skinAnalysisPanels,
   },
@@ -74,13 +78,14 @@ export const INNER_PAGE_REGISTRY: Record<InnerPageId, InnerPageDefinition> = {
     description: "Hero + 三格說明面板",
     defaultHero: {
       watermark: "Men",
-      eyebrow: "Men's Care",
-      title: "男賓護理專區",
-      lead: "屯門男賓皮膚管理 — 針清、激光脫墨脫疣、深層清潔。獨立入口、私密舒服，",
+      eyebrow: "By Appointment",
+      title: "男賓護理（只限預約）",
+      lead: "屯門男賓皮膚管理 — 針清、激光、深層清潔。須先 WhatsApp 或 IG 預約確認，",
       leadHighlight: "單次收費、唔綁套票",
-      metaDescription: "康姿健男賓護理專區 — 針清、激光護理、深層清潔。獨立入口，私密舒適。",
+      metaDescription:
+        "康姿健男賓護理只限預約 — 針清、激光護理、深層清潔。請先 WhatsApp 或 IG 預約。",
       ctaKind: "link",
-      ctaLabel: "預約男賓護理",
+      ctaLabel: "預約查詢",
       ctaHref: "/book",
       ctaId: "cta_men_hero_book",
     },
@@ -95,14 +100,16 @@ export const INNER_PAGE_REGISTRY: Record<InnerPageId, InnerPageDefinition> = {
       watermark: "Wellness",
       eyebrow: "Pain & Wellness",
       title: "痛症理療 · 遠紅外線養生",
-      lead: "皮膚管理之外，康姿健亦提供",
-      leadHighlight: "Dr. Rainbow 醫療級遠紅外線與傳統痛症理療",
+      lead: "皮膚管理之外，康姿健為女賓提供",
+      leadHighlight: "Dr. Rainbow 遠紅外線與傳統痛症理療（推拿只限女賓）",
       metaDescription:
-        "康姿健痛症理療 — Dr. Rainbow 遠紅外線焗倉、Dr. Face 童顏機、退背拔罐刮痧。屯門單次收費。",
+        "康姿健痛症理療 — Dr. Rainbow 遠紅外線焗倉、退背拔罐刮痧。痛症推拿只限女賓，屯門單次收費。",
       ctaKind: "whatsapp",
       ctaLabel: "WhatsApp 查詢",
       ctaId: "cta_whatsapp_wellness",
       whatsappMessageKey: "wellness",
+      imageSrc: "/videos/reels/posters/11.jpg",
+      imageAlt: "康姿健女賓護理服務 — 屯門地舖價目表",
     },
     defaultPanels: wellnessPanels,
   },

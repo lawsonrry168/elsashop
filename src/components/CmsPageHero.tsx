@@ -23,6 +23,8 @@ export function CmsPageHero({ hero }: Props) {
       eyebrow={hero.eyebrow}
       title={hero.title}
       lead={<HeroLeadText lead={hero.lead} leadHighlight={hero.leadHighlight} />}
+      imageSrc={hero.imageSrc}
+      imageAlt={hero.imageAlt}
     >
       {hero.ctaKind === "logo" ? (
         <BrandLogo className="brand-logo--about moana-page-hero__logo" />

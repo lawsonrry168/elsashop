@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
+import { HeaderSocialLinks } from "@/components/HeaderSocialLinks";
 import { IconClose, IconMenu } from "@/components/icons/KzIcons";
 import { navItems, site } from "@/data/site";
 
@@ -75,6 +76,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <HeaderSocialLinks />
           <Link
             href="/book"
             className="btn-primary conversion-touch-target"

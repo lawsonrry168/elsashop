@@ -76,7 +76,7 @@ export type HeroMarqueeItem =
 const defaultMarqueeLinks: HeroContent["marqueeLinks"] = [
   { num: "01", label: "療程目錄", href: "/treatments", ctaId: "cta_hero_index_treatments" },
   { num: "02", label: "量膚定制", href: "/skin-analysis", ctaId: "cta_hero_index_skin" },
-  { num: "03", label: "男賓護理", href: "/men", ctaId: "cta_hero_index_men" },
+  { num: "03", label: "痛症理療", href: "/wellness", ctaId: "cta_hero_index_wellness" },
   { num: "04", label: "醫美知識", href: "/journal", ctaId: "cta_hero_index_journal" },
 ];
 
@@ -95,10 +95,15 @@ const defaultTagline: HeroTaglineArt = {
   line2Accent: "Accessory",
 };
 
+const heroStorefrontSlide: HeroSlide = {
+  src: "/videos/reels/posters/22.jpg",
+  alt: "康姿健屯門地舖門面 — 女賓護理為主，痛症推拿只限女賓",
+};
+
 export const defaultHeroContent: HeroContent = {
-  slides: [{ src: images.hero.main.src, alt: images.hero.main.alt }],
-  image: images.hero.main.src,
-  imageAlt: images.hero.main.alt,
+  slides: [heroStorefrontSlide, { src: images.hero.main.src, alt: images.hero.main.alt }],
+  image: heroStorefrontSlide.src,
+  imageAlt: heroStorefrontSlide.alt,
   watermark: "SKIN",
   kicker: `${site.nameEn} · Bespoke Skincare`,
   titleLines: ["量膚", "定制", "更安心"],

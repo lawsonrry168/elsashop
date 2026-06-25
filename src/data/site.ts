@@ -19,8 +19,7 @@ export const site = {
   threads: "https://www.threads.com/@hong_chi_kin",
   facebook:
     "https://www.facebook.com/profile.php?id=100066932628186",
-  xiaohongshu:
-    "https://www.xiaohongshu.com/user/profile/67d2d82b000000000d009a62",
+  xiaohongshu: "https://xhslink.com/m/7zoVvFMANdv",
   hours: "每日 09:00 – 21:00",
   address: "屯門紅橋菁菱徑9號華利大廈12號（地舖）",
   mapQuery: "康姿健 屯門紅橋菁菱徑9號華利大廈12號",
@@ -66,7 +65,7 @@ export function telUrl() {
 export const navItems = [
   { label: "療程", href: "/treatments" },
   { label: "量膚定制", href: "/skin-analysis" },
-  { label: "男賓護理", href: "/men" },
+  { label: "男賓（只限預約）", href: "/men" },
   { label: "痛症理療", href: "/wellness" },
   { label: "醫美知識", href: "/journal" },
   { label: "常見問題", href: "/faq" },
@@ -88,7 +87,7 @@ export const sitePages = [
     desc: "西班牙 TEGODER 果酸 — 先分析膚況，再建議專屬配方。",
   },
   {
-    label: "男賓護理",
+    label: "男賓（只限預約）",
     href: "/men",
     eyebrow: "Men's Care",
     desc: "針清、激光護理、深層清潔 — 獨立入口，私密舒適。",

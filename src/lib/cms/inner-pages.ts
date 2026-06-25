@@ -50,6 +50,8 @@ function pickHero(
     "ctaHref",
     "ctaId",
     "whatsappMessageKey",
+    "imageSrc",
+    "imageAlt",
   ] as const) {
     const value = override[key];
     if (typeof value === "string" && value.trim()) {

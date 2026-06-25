@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { images } from "@/data/images";
-import { promo } from "@/data/promo-images";
 
 const bentoCells = [
   {
@@ -40,14 +39,14 @@ const bentoCells = [
     dark: false,
   },
   {
-    id: "men",
-    href: "/men",
-    ctaId: "cta_bento_men",
+    id: "wellness",
+    href: "/wellness",
+    ctaId: "cta_bento_wellness",
     col: "md:col-span-12",
     row: "md:row-span-1",
-    title: "男賓護理專區",
-    body: "針清、激光、深層清潔 — 私密舒適，無硬銷。",
-    image: promo.menFacial,
+    title: "痛症理療 · 女賓為主",
+    body: "遠紅外線養生、傳統理療；推拿只限女賓。男賓護理只限預約。",
+    image: { src: "/videos/reels/posters/11.jpg", alt: "康姿健女賓護理服務" },
     dark: true,
     wide: true,
   },

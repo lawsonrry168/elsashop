@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { BookingCTA } from "@/components/BookingCTA";
@@ -118,17 +117,6 @@ export default function TreatmentsPageClient({
                   <span className="moana-catalog__count">{filtered.length}</span>
                 </h2>
               </div>
-              <p className="moana-catalog__aside">
-                男賓護理
-                <Link
-                  href="/men"
-                  className="moana-pill-btn moana-pill-btn--ghost"
-                  data-cta-id="cta_treatments_men"
-                >
-                  專區
-                  <span aria-hidden>→</span>
-                </Link>
-              </p>
             </div>
 
             <div className="moana-filters">

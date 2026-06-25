@@ -14,6 +14,14 @@ npm run seed:cms
 
 ## 3. 建立第一個管理員
 
+**方式 A — 指令（需 `SUPABASE_SERVICE_ROLE_KEY`）**
+
+```bash
+npm run create:admin -- --email your@email.com --password 'YourPass123' --role owner
+```
+
+**方式 B — Supabase Dashboard 手動**
+
 1. 在 [Supabase Dashboard](https://supabase.com/dashboard) → Authentication → Users 建立用戶
 2. 在 SQL Editor 執行：
 

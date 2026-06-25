@@ -16,7 +16,7 @@ export function HomePageHub() {
               探索全站
             </h2>
             <p className="moana-home__section-desc">
-              療程、量膚、男賓、知識、痛症理療 — 你想了解嘅，都喺呢度。
+              療程、量膚、知識、痛症理療 — 你想了解嘅，都喺呢度。
             </p>
           </div>
         </div>

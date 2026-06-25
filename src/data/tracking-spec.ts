@@ -20,7 +20,7 @@ export const TRACKING_EVENT_GROUPS: {
       { id: "cta_hero_skin_flow", label: "了解量膚流程", page: "/" },
       { id: "cta_hero_index_treatments", label: "跑馬燈 · 療程", page: "/" },
       { id: "cta_hero_index_skin", label: "跑馬燈 · 量膚", page: "/" },
-      { id: "cta_hero_index_men", label: "跑馬燈 · 男賓", page: "/" },
+      { id: "cta_hero_index_wellness", label: "跑馬燈 · 痛症", page: "/" },
       { id: "cta_hero_index_journal", label: "跑馬燈 · 知識", page: "/" },
     ],
   },

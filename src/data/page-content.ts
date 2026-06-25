@@ -57,8 +57,8 @@ export const skinAnalysisPanels: ContentPanel[] = [
 export const menCarePanels: ContentPanel[] = [
   {
     id: "men-zone",
-    title: "男賓專區，自在啲",
-    body: "好多男客人想有私密、唔被打擾嘅空間處理毛孔、暗瘡或者激光。康姿健有獨立男賓入口，流程同女賓一樣專業，環境更自在 — 量膚之後先建議，做唔做由你決定。",
+    title: "男賓護理（只限預約）",
+    body: "男賓皮膚管理 — 針清、激光、深層清潔等，須先透過 WhatsApp 或 IG 預約確認時段。流程同女賓一樣專業，環境私密舒服；量膚之後先建議，做唔做由你決定。",
   },
   {
     id: "men-treatments",
@@ -73,7 +73,7 @@ export const menCarePanels: ContentPanel[] = [
   {
     id: "men-booking",
     title: "點樣預約",
-    body: "WhatsApp 或 Instagram DM 預約，講聲「男賓療程」就得；亦可以用官網引導式預約。單次收費，唔綁套票。",
+    body: "WhatsApp 或 Instagram DM 預約，講聲想約男賓護理就得；亦可以用官網引導式預約。單次收費，唔綁套票。",
   },
 ];
 
@@ -91,8 +91,8 @@ export const wellnessPanels: ContentPanel[] = [
   },
   {
     id: "traditional-pain",
-    title: "傳統痛症護理",
-    body: "退背、拔罐、刮痧等傳統手法，疏通經絡、舒緩肩頸背腰攰。詳情同收費 WhatsApp 或 IG 問我哋就得。",
+    title: "傳統痛症護理（只限女賓）",
+    body: "退背、拔罐、刮痧等傳統推拿手法，疏通經絡、舒緩肩頸背腰攰。痛症推拿只限女賓；詳情同收費 WhatsApp 或 IG 問我哋就得。",
     list: ["退背 — 疏通經絡", "拔罐 — 祛濕散寒", "刮痧 — 排毒去火"],
   },
 ];
@@ -110,7 +110,6 @@ export const journalIntroPanels: ContentPanel[] = [
       "想了解果酸 → 揀「護膚知識」或「量膚定制」",
       "暗瘡 / 毛孔煩惱 → 儀器療程 + 護膚知識",
       "遠紅外線 / 痛症 → 痛症理療分類",
-      "男賓客人 → 男賓護理分類",
     ],
   },
 ];
@@ -127,8 +126,7 @@ export const aboutPanels: ContentPanel[] = [
     list: [
       "皮膚管理 — 量膚定制、果酸煥膚、等離子淨痘",
       "醫美儀器 — 激光祛斑、膠原提升、微針射頻",
-      "痛症理療 — 退背、拔罐、刮痧等傳統理療護理",
-      "男賓護理 — 獨立專區，私密舒適",
+      "痛症理療 — 退背、拔罐、刮痧（推拿只限女賓）",
     ],
   },
   {

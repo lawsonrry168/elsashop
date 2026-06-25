@@ -8,7 +8,8 @@
     "start": "next start",
     "seed:cms": "tsx scripts/seed-kz-cms.ts",
     "seed:cms:sql": "tsx scripts/seed-kz-cms.ts --sql",
-    "backup:cms": "tsx scripts/backup-cms.ts"
+    "backup:cms": "tsx scripts/backup-cms.ts",
+    "create:admin": "tsx scripts/create-cms-admin.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

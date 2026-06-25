@@ -87,6 +87,8 @@ export type PageHeroOverride = {
   ctaHref?: string;
   ctaId?: string;
   whatsappMessageKey?: "skinAnalysis" | "wellness" | "default";
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 export type PagePanelOverride = {

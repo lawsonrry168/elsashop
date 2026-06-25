@@ -37,9 +37,9 @@ export default async function MenPage() {
                   <span className="moana-section-label__rule" aria-hidden />
                   Treatments
                 </p>
-                <h2 className="moana-catalog__title">男賓療程</h2>
+                <h2 className="moana-catalog__title">男賓療程（只限預約）</h2>
                 <p className="moana-catalog__desc">
-                  以下療程價格需諮詢報價，請透過 WhatsApp 或 IG 查詢。
+                  以下療程須先預約確認；價格需諮詢報價，請透過 WhatsApp 或 IG 查詢。
                 </p>
               </div>
             </div>
@@ -52,8 +52,8 @@ export default async function MenPage() {
 
       <ProcessSteps content={processContent} />
       <BookingCTA
-        title="預約男賓護理"
-        subtitle="WhatsApp 或 IG DM 預約，講聲「男賓療程」就得。"
+        title="預約男賓護理（只限預約）"
+        subtitle="WhatsApp 或 IG DM 預約，講聲想約男賓護理就得。"
       />
     </>
   );
